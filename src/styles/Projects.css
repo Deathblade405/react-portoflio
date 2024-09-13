@@ -1,0 +1,223 @@
+/* Projects Page Styles */
+.projects {
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #f0f4f8, #e1e9f0);
+  color: var(--text-color);
+  text-align: center;
+  transition: background var(--transition-speed), color var(--transition-speed);
+  min-height: 100vh;
+}
+
+.projects h1 {
+  font-size: 3rem;
+  margin-bottom: 40px;
+  color: var(--primary-color);
+  font-weight: 700;
+  letter-spacing: 1px;
+  transition: color var(--transition-speed);
+  animation: fadeIn 1s ease-out;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+  padding: 0 20px;
+}
+
+.project-card {
+  background: var(--secondary-color);
+  border-radius: var(--radius);
+  padding: 20px;
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed), border var(--transition-speed), background var(--transition-speed);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid transparent;
+  backdrop-filter: blur(4px);
+  animation: cardFadeIn 0.8s ease-out;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transition: background var(--transition-speed);
+  z-index: 0;
+}
+
+.project-card:hover::before {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.project-card img {
+  width: 100%;
+  border-radius: var(--radius);
+  transition: transform var(--transition-speed);
+  z-index: 1;
+}
+
+.project-card:hover img {
+  transform: scale(1.05);
+}
+
+.project-card h3 {
+  font-size: 1.5rem;
+  margin: 10px 0;
+  color: var(--primary-color);
+  z-index: 1;
+}
+
+.project-card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-color);
+  z-index: 1;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--primary-color);
+}
+
+.project-card .project-description {
+  display: none;
+  opacity: 0;
+  transition: opacity var(--transition-speed);
+}
+
+.project-card:hover .project-description {
+  display: block;
+  opacity: 1;
+}
+
+/* Dark Mode */
+.app.dark-mode .projects {
+  background: linear-gradient(135deg, #1f1f1f, #2c2c2c);
+  color: var(--dark-text-color);
+}
+
+.app.dark-mode .projects h1 {
+  color: var(--dark-primary-color);
+}
+
+.app.dark-mode .project-card {
+  background: var(--dark-background-color);
+  border: 1px solid transparent;
+}
+
+.app.dark-mode .project-card h3 {
+  color: var(--dark-primary-color);
+}
+
+.app.dark-mode .project-card p {
+  color: var(--dark-text-color);
+}
+
+.app.dark-mode .project-card::before {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cardFadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .projects h1 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+  }
+
+  .project-card {
+    padding: 15px;
+  }
+
+  .project-card h3 {
+    font-size: 1.25rem;
+  }
+
+  .project-card p {
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .projects {
+    padding: 60px 15px;
+  }
+
+  .projects h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+
+  .project-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
+
+  .project-card {
+    padding: 15px;
+  }
+
+  .project-card h3 {
+    font-size: 1.125rem;
+  }
+
+  .project-card p {
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects {
+    padding: 40px 10px;
+  }
+
+  .projects h1 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+
+  .project-card {
+    padding: 10px;
+  }
+
+  .project-card h3 {
+    font-size: 1rem;
+  }
+
+  .project-card p {
+    font-size: 0.75rem;
+  }
+}

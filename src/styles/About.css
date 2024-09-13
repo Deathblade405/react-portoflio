@@ -1,0 +1,207 @@
+/* About Page Styles */
+.about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #f2f4f7, #e1e9f0);
+  color: var(--text-color);
+  text-align: center;
+  min-height: 100vh; /* Ensure the section takes up at least the full viewport height */
+  position: relative;
+  overflow: hidden;
+}
+
+.about::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  z-index: 0;
+  transition: background var(--transition-speed);
+}
+
+.about-content {
+  background: var(--secondary-color);
+  border-radius: var(--radius);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  padding: 40px;
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  transition: box-shadow var(--transition-speed), transform var(--transition-speed);
+}
+
+.about-content:hover {
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
+  transform: translateY(-5px);
+}
+
+.about h1 {
+  font-size: 3.5rem; /* Larger font size for better impact */
+  margin-bottom: 20px;
+  color: var(--primary-color);
+  font-weight: 800; /* Bolder font weight */
+  letter-spacing: 1.5px;
+  transition: color var(--transition-speed);
+  animation: fadeIn 1s ease-out;
+}
+
+.profile-img {
+  border-radius: 50%;
+  width: 200px; /* Larger profile picture */
+  height: 200px;
+  object-fit: cover;
+  border: 8px solid var(--primary-color);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.25);
+  margin-bottom: 20px;
+  transition: border-color var(--transition-speed), transform var(--transition-speed);
+  animation: zoomIn 1s ease-out;
+}
+
+.profile-img:hover {
+  border-color: var(--button-hover-bg-color);
+  transform: scale(1.1);
+}
+
+.about p {
+  font-size: 1.25rem; /* Adjusted for readability */
+  line-height: 1.6; /* Adjust line-height for better readability */
+  max-width: 700px; /* Ensures text does not stretch too wide */
+  margin: 0 auto;
+  color: var(--text-color);
+  transition: color var(--transition-speed);
+  animation: fadeInUp 1s ease-out;
+  text-align: center; /* Center-align text for a neat look */
+}
+
+/* Dark Mode */
+.app.dark-mode .about {
+  background: linear-gradient(135deg, #1e1e1e, #2c2c2c);
+  color: var(--dark-text-color);
+}
+
+.app.dark-mode .about::before {
+  background: rgba(28, 28, 28, 0.2);
+}
+
+.app.dark-mode .about-content {
+  background: var(--dark-secondary-color);
+}
+
+.app.dark-mode .about h1 {
+  color: var(--dark-primary-color);
+}
+
+.app.dark-mode .profile-img {
+  border-color: var(--dark-primary-color);
+}
+
+.app.dark-mode .about p {
+  color: var(--dark-text-color);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .about h1 {
+    font-size: 3rem;
+  }
+
+  .profile-img {
+    width: 180px;
+    height: 180px;
+  }
+
+  .about p {
+    font-size: 1.125rem;
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about {
+    padding: 60px 15px;
+  }
+
+  .about-content {
+    padding: 30px;
+  }
+
+  .about h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+  }
+
+  .profile-img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .about p {
+    font-size: 1rem;
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .about {
+    padding: 40px 10px;
+  }
+
+  .about-content {
+    padding: 20px;
+  }
+
+  .about h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+
+  .profile-img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .about p {
+    font-size: 0.875rem;
+  }
+}
